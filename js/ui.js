@@ -30,7 +30,7 @@ export class UI {
             
                 <div class="card-info">
                   <h4>${this.sliceText(song.title)}</h4>
-                  <h4>${song.subtitle}</h4>
+                  <h4>${this.sliceText(song.subtitle)}</h4>
                 </div>
               </div>`;
       this.list.appendChild(card);
