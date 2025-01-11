@@ -2,7 +2,8 @@ export class UI {
   constructor() {
     this.list = document.querySelector(".list");
     this.form = document.querySelector("form");
-    this.title = document.querySelector("#title");
+    this.title = document.getElementById("title");
+    this.player = document.querySelector(".player");
   }
 
   renderCards(songs) {
@@ -10,6 +11,12 @@ export class UI {
     songs.forEach((song) => {
       const card = document.createElement("div");
       card.className = "card";
+      //card elemanına şarkı verilerini aktar
+      
+      card.dataset.title = song.title;
+      card.dataset.subtitle = song.subtitle;
+      card.dataset.img = song.images.coverarthq;
+      card.dataset.mp3 = song.hub.actions[1].uri;
       card.innerHTML = `<div class="card">
                 <figure>
                   <img
@@ -46,10 +53,49 @@ export class UI {
   updateTitle(text) {
     this.title.textContent = text;
   }
-  sliceText(text){
-    if (text.length>16) {
-        return text.slice(0,16)+"..."  
+  sliceText(text) {
+    if (text.length > 16) {
+      return text.slice(0, 16) + "...";
     }
     return text;
+  }
+
+  renderPlayer(song) {
+    console.log(song);
+
+    this.player.innerHTML = `
+      <div class="info">
+        <img
+          src="${song.img}"
+          alt=""
+        />
+        <div>
+          <h5>${song.title}</h5>
+          <p>${song.subtitle}</p>
+        </div>
+      </div>
+ 
+      <audio autoplay
+        src="${song.mp3}"
+        controls
+      ></audio>
+      <!-- Icons -->
+      <div class="icons">
+        <i class="bi bi-music-note-list"></i>
+        <i class="bi bi-boombox-fill"></i>
+        <i class="bi bi-pc-display"></i>
+      </div>
+    
+    `;
+    const audio = this.player.querySelector("audio");
+    // Audio elemanın oynat-durdur durumunu konrol et
+    audio.addEventListener("play", this.toggleAnimation);
+    audio.addEventListener("pause", this.toggleAnimation);
+  }
+
+  // resim animasyonunu dinamik şekilde ekle-çıkar yapan fonksiyon
+  toggleAnimation() {
+    const image = document.querySelector(".info img");
+    image.classList.toggle("animate");
   }
 }

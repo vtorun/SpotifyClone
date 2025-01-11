@@ -31,3 +31,19 @@ ui.form.addEventListener("submit", (e) => {
       alert("Şarkılar API dan gelmiyor....");
     });
 });
+
+ui.list.addEventListener("click", (e) => {
+  // Eğer play classına sahip bir elemana tıklandıysa şarkı çalma işlevini gerçekleştir
+  if (e.target.className == "play") {
+    // Tıklanılan elemanın kapsamına eriş
+    const card = e.target.closest(".card");
+
+    const data = card.dataset;
+
+    console.log(data);
+
+    ui.renderPlayer(data);
+
+    console.log(ui);
+  }
+});

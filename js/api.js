@@ -1,4 +1,4 @@
-const url = "https://shazam.p.rapidapi.com/search?term=hadise&locale=en-US";
+const url = "https://shazam.p.rapidapi.com/search?term=adele&locale=en-US";
 const options = {
   method: "GET",
   headers: {
@@ -13,8 +13,8 @@ export class API {
     // const data = await response.json();
     // const formatted = data.tracks.hits.map((item) => item.track);
     // return formatted;
-    const data = await this.searchMusics("tarkan");
-    const data1 = await this.searchMusics("gülşen");
+    const data = await this.searchMusics("neffex");
+    const data1 = await this.searchMusics("eminem");
     return [...data, ...data1];
   }
   async searchMusics(query) {
