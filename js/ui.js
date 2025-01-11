@@ -17,7 +17,7 @@ export class UI {
       card.dataset.subtitle = song.subtitle;
       card.dataset.img = song.images.coverarthq;
       card.dataset.mp3 = song.hub.actions[1].uri;
-      card.innerHTML = `<div class="card">
+      card.innerHTML = `
                 <figure>
                   <img
                     src="${song.images.coverarthq}"
@@ -61,8 +61,6 @@ export class UI {
   }
 
   renderPlayer(song) {
-    console.log(song);
-
     this.player.innerHTML = `
       <div class="info">
         <img
@@ -88,12 +86,11 @@ export class UI {
     
     `;
     const audio = this.player.querySelector("audio");
-    // Audio elemanın oynat-durdur durumunu konrol et
+
     audio.addEventListener("play", this.toggleAnimation);
     audio.addEventListener("pause", this.toggleAnimation);
   }
 
-  // resim animasyonunu dinamik şekilde ekle-çıkar yapan fonksiyon
   toggleAnimation() {
     const image = document.querySelector(".info img");
     image.classList.toggle("animate");

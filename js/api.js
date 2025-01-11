@@ -13,8 +13,8 @@ export class API {
     // const data = await response.json();
     // const formatted = data.tracks.hits.map((item) => item.track);
     // return formatted;
-    const data = await this.searchMusics("neffex");
-    const data1 = await this.searchMusics("eminem");
+    const data = await this.searchMusics("tefo & seko");
+    const data1 = await this.searchMusics("irem derici");
     return [...data, ...data1];
   }
   async searchMusics(query) {
