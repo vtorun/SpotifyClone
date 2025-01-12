@@ -1,4 +1,4 @@
-# SpotifyClone
+# Spotify Clone
 This project is a web application that replicates the basic features of a music streaming platform similar to Spotify. It is built using HTML, SCSS, and JavaScript. Through RapidAPI integration, the application fetches music data, allowing users to search for songs and enjoy listening to them.
 
 # Key Features
